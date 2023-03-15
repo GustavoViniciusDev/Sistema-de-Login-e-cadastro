@@ -36,7 +36,7 @@
 				<div class="fullscreen-menu__image-container"></div>
 
 				<h1 class="fullscreen-menu__title">Olá  <?php echo $logado; ?></h1>
-                <?php   echo '<a href="validacoes/logout.php?token='.md5(session_id()).'">Sair</a>';?>
+                <?php   echo '<a href="../validacoes/logout.php?token='.md5(session_id()).'">Sair</a>';?>
 
 				<nav class="fullscreen-menu__nav">
 					<ul>
