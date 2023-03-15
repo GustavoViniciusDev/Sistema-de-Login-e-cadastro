@@ -8,9 +8,13 @@
   <script src="https://kit.fontawesome.com/1a56e06420.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/login.css" />
   <title>Login Forms</title>
-  <main class="container">
+  
+  </head>
+<body>
+
+<main class="container">
     <h2>Login</h2>
-    <form action="validacoes/logar.php" method="post">
+    <form action="validacoes/logar.php" method="post" onsubmit="return validaLogin()">
       <div class="input-field">
         <input type="text" name="usuario" id="username" placeholder="Coloque seu Usuario" />
         <div class="underline"></div>
@@ -20,7 +24,7 @@
         <div class="underline"></div>
       </div>
       <input type="submit" value="Logar" />
-      <a href="cadastrar.php" class="cadastrar">Cadastrar</a>
+      <a href="cadastrar.php" id="logar" class="cadastrar">Cadastrar</a>
     </form>
 
     <!-- <div class="footer">
@@ -43,8 +47,9 @@
       </div>
     </div> -->
   </main>
-</head>
 
-<body></body>
+  <script src="js/script.js"></script>
+
+</body>
 
 </html>

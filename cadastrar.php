@@ -27,7 +27,7 @@ if(!isset($_SERVER['$enviar'])){
     <h2>Cadastro</h2>
     <!--  -->
     
-    <form action="validacoes/cadastro.php" method="post">
+    <form action="validacoes/cadastro.php" method="post" onsubmit="return validaCadastro()">
     <label for="">Nome de usuario</label>
       <div class="input-field">          
         <input type="text" name="usuario" id="username" placeholder="Coloque seu Usuario" />
@@ -73,7 +73,7 @@ if(!isset($_SERVER['$enviar'])){
     </div> -->
   </main>
 
-  <!-- <script type="text/javascript" src="js/script.js"></script> -->
+  <script type="text/javascript" src="js/script.js"></script>
 </body>
 
 </html>
