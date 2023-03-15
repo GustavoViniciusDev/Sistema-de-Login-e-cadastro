@@ -1,0 +1,6 @@
+o banco deve ter 5 colunas
+id int primary key
+nome varchar 255
+email varchar 255
+senha varchar 50
+confirmar_senha 50
