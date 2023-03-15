@@ -23,7 +23,7 @@ if($senha == $confirmar_senha){
     
 
 }else{
-    print"<script> alert('As senhas não coincidem');</script>";
+    // print"<script> alert('As senhas não coincidem');</script>";
     print"<script> location.href='../cadastrar.php';</script>";
     
 }

@@ -14,7 +14,7 @@ $enviar = $conn->query($sql);
 if(mysqli_num_rows($enviar) > 0){
     $_SESSION['usuario']= $usuario;
     $_SESSION['senha'] = $senha;
-    header('location: ../tela.php');
+    header('location: ../home/home.php');
    
 }
 else{

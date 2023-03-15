@@ -22,8 +22,11 @@ const campoConfSenha = document.getElementById('confpassword');
       alert('O campo confirmar senha é obrigatorio');
       return false;
   }
-
-  return true;
+  else if (campoSenha.value != campoConfSenha.value) {
+    alert('As senhas nao coincidem');
+    return false; //Parar a execucao
+}
+return true;
 
 }
 
@@ -41,3 +44,9 @@ function validaLogin(){
   }
   return true;
 }
+
+
+
+
+
+

@@ -20,6 +20,6 @@
 <h1>Olá <?php echo $logado;  ?></h1>
 
 
-    <?php   echo '<a href="validacoes/logout.php?token='.md5(session_id()).'">Sair</a>';?>
+    
 </body>
 </html>
