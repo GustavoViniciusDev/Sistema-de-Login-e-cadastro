@@ -4,8 +4,8 @@ require_once('../conexao/conect.php');
 
 $usuario = $_POST['usuario'];
 $email = $_POST['email'];
-$senha = md5($_POST['senha']);
-$confirmar_senha = md5($_POST['confirmar_senha']);
+$senha = md5(addslashes($_POST['senha']));
+$confirmar_senha = md5(addslashes($_POST['confirmar_senha']));
 
 //tratar pra verificar se os dados estao corretos
 

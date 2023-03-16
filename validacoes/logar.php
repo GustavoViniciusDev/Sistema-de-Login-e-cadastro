@@ -20,7 +20,7 @@ if(mysqli_num_rows($enviar) > 0){
 else{
     unset ($_SESSION['usuario']);
     unset ($_SESSION['senha']);
-
-    print"<script> location.href='../cadastrar.php';</script>";
+    print"<script> alert('Nenhum usuario encontrado');</script>";
+    print"<script> location.href='../index.php';</script>";
 
 }

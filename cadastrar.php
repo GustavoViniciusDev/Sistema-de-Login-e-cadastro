@@ -45,23 +45,29 @@ if(!isset($_SERVER['$enviar'])){
               <h3>Cadastre-se Agora</h3>
               
             </div>
-            <form action="validacoes/cadastro.php" method="post" onsubmit="return validaCadastro()">
+            <form action="validacoes/cadastro.php" method="post"   onsubmit="return validaCadastro()">
               <div class="form-group first">
                 <label for="username">Usuario</label>
                 <input type="text" class="form-control" name="usuario" id="username">
               </div>
-              <div class="form-group first">
+              <div class="form-group ">
                 <label for="username">Email</label>
                 <input type="text" class="form-control" name="email" id="email">
               </div>
-              <div class="form-group first">
+              <div class="form-group ">
                 <label for="username">Senha</label>
-                <input type="password" class="form-control" name="senha" id="password">
+                <input type="password" class="form-control" name="senha" id="password" onkeyup="senhaForca()">
+                
               </div>
+              <div  id="erroSenhaFraca">
+              </div>
+              <!-- <div class="form-group" id="ifnSenha"></div> -->
+             
               <div class="form-group last mb-4">
                 <label for="password">Confirmar senha</label>
                 <input type="password" class="form-control" name="confirmar_senha" id="confpassword">
               </div>
+              <div  id="erroConfirmarSenha">
               
               
 
