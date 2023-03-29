@@ -1,10 +1,38 @@
 <?php
-session_start();
-require_once('conexao/conect.php'); 
 
-if(!isset($_SERVER['$enviar'])){
 
+if(isset($_POST['cadastrar'])){
+  include('Classes/Conexao.php');
+  include('Classes/UsuarioDAO.php');
+
+
+  $cadastrar = new UsuarioDAO();
+
+  $nome = trim(strip_tags($_POST['usuario']));// atribui login à variavel, com funções contra sql inject
+  $email = trim(strip_tags($_POST['email']));
+  $senha = trim(strip_tags($_POST['senha']));
+  $confirmar_senha = trim(strip_tags($_POST['confirmar_senha']));
+
+  if($senha == $repitir_senha){
+    //caso o login escolhido ja exista
+    $consulta = $cadastrar->unico($nome);
+    if($consulta == false){
+      header('location:cadastrar.php?repetido=senha');
+
+    }else{
+      $insere = $cadastrar->cadastrar($nome,$email,$senha,$confirmar_senha);
+
+        if($insere == true){
+          header('location:cadastrar.php?success=cadastro');
+        }
+      }
+    
+    }else{
+      header('location:cadastrar.php?erro=senha');
+    }
 }
+
+
 
 
 ?>
@@ -32,6 +60,29 @@ if(!isset($_SERVER['$enviar'])){
   </head>
 
 <body>
+
+  <?php
+    // mensagem de erro caso as senhas não sejam iguais
+    if(isset($_GET['erro'])) {
+      echo '<div class="alert alert-danger">As senhas devem ser iguais!</div>';
+    }
+
+    //mensagem de erro caso o login escolhido ja exista
+
+    if(isset($_GET['repetido'])){
+      echo '<div class="alert alert-danger">Este Login já foi escolhido por outra pessoa!</div>';
+    }
+
+    //mensagem caso o usuario seja cadastrado corretamente
+
+    if(isset($_GET['success'])) {
+      echo '<div class="alert alert-success">Usuario cadastrado!</div>';
+    }
+
+
+  ?>
+
+
 <div class="content">
     <div class="container">
       <div class="row">
@@ -45,7 +96,8 @@ if(!isset($_SERVER['$enviar'])){
               <h3>Cadastre-se Agora</h3>
               
             </div>
-            <form action="validacoes/cadastro.php" method="post"   onsubmit="return validaCadastro()">
+            <!-- <form action="#" method="post"   onsubmit="return validaCadastro()"> -->
+            <form action="#" method="post" >
               <div class="form-group first">
                 <label for="username">Usuario</label>
                 <input type="text" class="form-control" name="usuario" id="username">

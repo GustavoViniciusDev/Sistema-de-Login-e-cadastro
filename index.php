@@ -1,3 +1,20 @@
+<?php
+if($_POST){
+  include('Classes/Conexao.php');
+  include('Classes/Usuario.php');
+
+  $usuario = new UsuarioDAO();
+
+  $usuario = addcslashes($_POST['usuario']);
+  $senha = addcslashes($_POST['senha']);
+
+
+
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt_BR">
 
@@ -22,6 +39,18 @@
 <body>
 
 <div class="content">
+
+  <?php
+
+  if(isset($_GET['erro'])) {
+    echo '<div class="alert alert-danger">Dados de login incorretos</div>';
+  }
+
+  if(isset($_GET['success'])) {
+    echo '<div class="alert alert-success">Logout efetuado com sucesso</div>';
+  }
+
+  ?>
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -34,7 +63,8 @@
               <h3>Logar</h3>
               
             </div>
-            <form action="validacoes/logar.php" method="post" onsubmit="return validaLogin()">
+            <!-- <form action="#" method="post" onsubmit="return validaLogin()"> -->
+            <form action="#" method="post" >
               <div class="form-group first">
                 <label for="username">Usuario</label>
                 <input type="text" class="form-control" name="usuario" id="username">
